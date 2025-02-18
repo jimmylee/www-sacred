@@ -1,6 +1,8 @@
-import styles from '@components/Tooltip.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  root: "block bg-[var(--theme-border)] shadow-[0.5ch_0.5ch_0_0_var(--theme-border-subdued)] font-normal max-w-[24ch]"
+};
 
 interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {}
 

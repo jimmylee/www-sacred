@@ -1,8 +1,11 @@
 'use client';
 
-import styles from '@components/BlockLoader.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
+
+const styles = {
+  root: clsx("inline-block w-[1ch] text-inherit h-[calc(var(--font-size)*var(--theme-line-height-base))] align-bottom")
+};
 
 const SEQUENCES = [
   ['⠁', '⠂', '⠄', '⡀', '⢀', '⠠', '⠐', '⠈'],
@@ -24,7 +27,7 @@ interface BlockLoaderProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, '
 
 const BlockLoader: React.FC<BlockLoaderProps> = ({ mode = 0 }) => {
   if (!SEQUENCES[mode]) {
-    return <span className={styles.block}>�</span>;
+    return <span className={styles.root}>�</span>;
   }
 
   const [index, setIndex] = React.useState(0);

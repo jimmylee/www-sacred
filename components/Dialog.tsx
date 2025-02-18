@@ -1,9 +1,14 @@
-import styles from '@components/Dialog.module.scss';
-
 import * as React from 'react';
 
 import Block from '@components/Block';
 import Button from '@components/Button';
+
+const styles = {
+  root: "block bg-[var(--theme-border)] shadow-[1ch_1ch_0_0_var(--theme-border-subdued)] font-normal max-w-[56ch] min-w-[24ch] m-0 p-0",
+  header: "block bg-[var(--theme-text)] text-[var(--theme-background)] text-center m-0 p-0",
+  message: "block m-0 text-center px-[2ch]",
+  actions: "flex justify-between items-center max-w-[24ch] mx-auto px-[2ch]"
+};
 
 interface DialogProps {
   title?: React.ReactNode;

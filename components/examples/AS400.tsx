@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/AS400.module.scss';
-
 import * as React from 'react';
 
 import Card from '@components/Card';

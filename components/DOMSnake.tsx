@@ -1,8 +1,15 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import styles from './DOMSnake.module.scss';
 import ActionButton from './ActionButton';
+
+const styles = {
+  container: "flex flex-col items-center gap-[4px]",
+  grid: "grid focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]",
+  cell: "w-full h-full",
+  snake: "bg-[var(--theme-text)]",
+  food: "bg-[var(--theme-focused-foreground)]"
+};
 
 interface SnakeGameProps {
   width?: number;

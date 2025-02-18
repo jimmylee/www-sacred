@@ -1,7 +1,15 @@
 'use client';
 
-import styles from '@components/SidebarLayout.module.scss';
+import clsx from 'clsx';
 import * as React from 'react';
+
+const styles = {
+  root: "flex items-start justify-between whitespace-pre-wrap",
+  sidebar: "self-stretch flex-shrink-0 w-[20ch]",
+  handle: "self-stretch flex-shrink-0 flex items-center justify-center w-[3ch] outline-0 border-0 cursor-col-resize group focus:outline-0 focus:border-0",
+  line: "self-stretch w-[2px] bg-[var(--theme-text)] first-of-type:ml-[1px] first-of-type:mr-[2px] group-hover:bg-[var(--theme-focused-foreground)] group-focus:bg-[var(--theme-focused-foreground)]",
+  content: "min-w-[10%] w-full"
+};
 
 interface SidebarLayoutProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'> {
   children?: React.ReactNode;
@@ -39,7 +47,7 @@ const SidebarLayout: React.FC<SidebarLayoutProps> = ({ defaultSidebarWidth = 20,
 
   if (isReversed) {
     return (
-      <div className={styles.root} {...rest}>
+      <div className={clsx(styles.root)} {...rest}>
         <div className={styles.content}>{children}</div>
         &nbsp;
         <div
@@ -55,7 +63,7 @@ const SidebarLayout: React.FC<SidebarLayoutProps> = ({ defaultSidebarWidth = 20,
   }
 
   return (
-    <div className={styles.root} {...rest}>
+    <div className={clsx(styles.root)} {...rest}>
       <div
         className={styles.sidebar}
         style={{

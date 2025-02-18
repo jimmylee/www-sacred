@@ -1,8 +1,13 @@
 'use client';
 
-import styles from '@components/TreeView.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
+
+const styles = {
+  root: "whitespace-nowrap [-webkit-text-size-adjust:100%]",
+  item: "cursor-pointer focus:outline-0 focus:border-0 focus:bg-[var(--theme-focused-foreground)]",
+  empty: "opacity-50"
+};
 
 interface TreeViewProps {
   children?: React.ReactNode;
@@ -35,7 +40,13 @@ const TreeView: React.FC<TreeViewProps> = ({ defaultValue = false, title, childr
 
   return (
     <div className={styles.root} style={style}>
-      <div tabIndex={0} role="button" onClick={onToggleShow} className={styles.item} aria-expanded={show}>
+      <div 
+        tabIndex={0} 
+        role="button" 
+        onClick={onToggleShow} 
+        className={clsx(styles.item, isEmptyFolder && styles.empty)} 
+        aria-expanded={show}
+      >
         {prefix}
         {icon}
         {title}

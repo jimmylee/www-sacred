@@ -7,20 +7,24 @@
   "license": "MIT",
   "version": "1.1.4",
   "scripts": {
-    "dev": "next -p 10000",
+    "dev": "next -p 11111",
     "build": "next build",
-    "start": "PORT=10000 next start",
+    "start": "PORT=11111 next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "next": "^15.1.6",
+    "postcss": "^8.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sass": "1.83.4"
+    "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.6",
     "@types/node": "^22.12.0",
-    "@types/react": "^19.0.8",
+    "@types/react": "^19.0.10",
+    "autoprefixer": "^10.4.20",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }

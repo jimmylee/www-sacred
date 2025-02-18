@@ -1,8 +1,10 @@
 'use client';
 
-import styles from '@components/RowSpaceBetween.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  row: "flex justify-between outline-0 border-0 transition-[background] duration-200 ease focus:bg-[var(--theme-focused-foreground)]"
+};
 
 type RowSpaceBetweenProps = React.HTMLAttributes<HTMLElement> & {
   children?: React.ReactNode;

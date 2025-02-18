@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/DataTable.module.scss';
-
 import * as React from 'react';
 
 interface TableProps {
@@ -28,6 +26,14 @@ function interpolateColor(color1: RGBAColor, color2: RGBAColor, factor: number):
   };
 }
 
+const styles = {
+  root: "relative w-full border-spacing-0 max-w-[64ch]",
+  body: "",
+  row: "transition-transform duration-500 ease-in-out border-spacing-0 first:font-normal focus:bg-[var(--theme-focused-foreground)] focus:outline-0",
+  column: "border-0 outline-0 pr-[1ch] transition-colors duration-500 ease-in-out",
+  changed: "animate-[flash_2000ms_ease]"
+};
+
 const DataTable: React.FC<TableProps> = ({ data }) => {
   const tableRef = React.useRef<HTMLTableElement>(null);
   const prevDataRef = React.useRef<string[][]>(data);
@@ -49,6 +55,20 @@ const DataTable: React.FC<TableProps> = ({ data }) => {
     }
     prevDataRef.current = data;
   }, [data]);
+
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes flash {
+        0% { background-color: var(--theme-focused-foreground-subdued); }
+        100% { background-color: transparent; }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTableElement>) => {
     const activeElement = document.activeElement;

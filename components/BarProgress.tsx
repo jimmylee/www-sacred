@@ -1,8 +1,13 @@
 'use client';
 
-import styles from '@components/BarProgress.module.scss';
+import clsx from 'clsx';
 
 import * as React from 'react';
+
+const styles = {
+  root: clsx("block bg-[var(--theme-border-subdued)] whitespace-nowrap text-left align-bottom overflow-hidden relative"),
+  measure: clsx("invisible absolute pointer-events-none")
+};
 
 interface BarProgressProps {
   intervalRate?: number;

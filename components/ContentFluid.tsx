@@ -1,6 +1,8 @@
-import styles from '@components/ContentFluid.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  root: "block min-w-[10%] w-full self-stretch"
+};
 
 interface ContentFluidProps extends React.HTMLAttributes<HTMLSpanElement> {
   children?: React.ReactNode;

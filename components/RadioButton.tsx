@@ -1,7 +1,17 @@
-import styles from '@components/RadioButton.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 import * as Utilities from '@common/utilities';
+
+const styles = {
+  section: "flex items-start justify-between relative",
+  right: "bg-[var(--theme-button-background)] min-w-[10%] w-full self-stretch pb-[calc(8px*var(--theme-line-height-base))] shadow-[inset_0_1px_0_0_var(--theme-border-subdued)] last:pb-0",
+  figure: "inline-flex h-[calc(var(--font-size)*var(--theme-line-height-base))] cursor-pointer text-[var(--theme-text)] w-[3ch] items-center justify-center bg-[var(--theme-button-foreground)] group-[.selected]:bg-[var(--theme-text)] group-[.focused]:!bg-[var(--theme-focused-foreground)]",
+  selected: "has-[.figure]:bg-[var(--theme-text)]",
+  dot: "inline-block w-[1ch] h-[1ch] bg-[var(--theme-background)] rotate-45 align-middle",
+  focused: "has-[.figure]:bg-[var(--theme-focused-foreground)]",
+  relative: "flex-shrink-0 inline-block align-baseline",
+  input: "absolute h-[1px] w-[1px] opacity-0 bg-transparent border-0 outline-0 m-0 p-0"
+};
 
 interface RadioButtonProps {
   style?: React.CSSProperties;
@@ -47,10 +57,12 @@ const RadioButton: React.FC<RadioButtonProps> = ({ style, name, value, selected 
 
   return (
     <div
-      className={Utilities.classNames(styles.section, {
-        [styles.focused]: isFocused,
-        [styles.selected]: selected,
-      })}
+      className={clsx(
+        styles.section,
+        'group',
+        isFocused && 'focused',
+        selected && 'selected'
+      )}
       style={style}
     >
       <input className={styles.input} id={radioId} type="radio" name={name} value={value} checked={selected} onFocus={handleFocus} onBlur={handleBlur} onKeyDown={handleKeyDown} onChange={handleChange} />

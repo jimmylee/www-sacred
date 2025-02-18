@@ -1,13 +1,15 @@
 'use client';
 
-import styles from '@components/ComboBox.module.scss';
-
 import * as React from 'react';
 
 import AlertBanner from '@components/AlertBanner';
 import ButtonGroup from '@components/ButtonGroup';
 import CardDouble from '@components/CardDouble';
 import Input from '@components/Input';
+
+const styles = {
+  root: "p-0"
+};
 
 interface ComboBoxProps {
   data: string[][];

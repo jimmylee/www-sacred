@@ -1,9 +1,14 @@
 'use client';
 
-import styles from '@components/CodeBlock.module.scss';
-
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
+
+const styles = {
+  root: "block font-normal overflow-auto font-inherit bg-[var(--theme-border-subdued)] scrollbar-none",
+  line: "flex justify-between items-start",
+  number: "inline-flex w-[3ch] text-right pr-[1ch] select-none bg-[var(--theme-background)] opacity-50",
+  content: "min-w-[10%] w-full whitespace-pre bg-[var(--theme-border-subdued)] pl-[2ch]"
+};
 
 interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
   children?: React.ReactNode;

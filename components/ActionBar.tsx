@@ -1,7 +1,5 @@
-import styles from '@components/ActionBar.module.scss';
-
 import * as React from 'react';
-import * as Utilities from '@common/utilities';
+import clsx from 'clsx';
 
 import ButtonGroup from '@components/ButtonGroup';
 
@@ -17,6 +15,10 @@ interface ActionBarItem {
 interface ActionBarProps {
   items: ActionBarItem[];
 }
+
+const styles = {
+  root: "bg-[var(--theme-background)] shadow-[inset_0_0_0_1px_var(--theme-border)]"
+};
 
 const ActionBar: React.FC<ActionBarProps> = ({ items }) => {
   return (

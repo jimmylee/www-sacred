@@ -1,6 +1,10 @@
-import styles from '@components/Divider.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  gradient: "bg-[linear-gradient(to_right,transparent,var(--theme-border),transparent)] h-[calc(var(--font-size)*var(--theme-line-height-base))] w-full",
+  divider: "flex items-center border-0 flex-col flex-shrink-0 h-[calc(var(--font-size)*var(--theme-line-height-base))] justify-center outline-0 w-full",
+  line: "bg-[var(--theme-text)] block flex-shrink-0 h-[2px] w-full"
+};
 
 interface DividerProps extends React.HTMLAttributes<HTMLSpanElement> {
   children?: React.ReactNode;

@@ -1,4 +1,4 @@
-import '@root/global.scss';
+import '@root/global.css';
 
 import * as Constants from '@common/constants';
 import * as Utilities from '@common/utilities';

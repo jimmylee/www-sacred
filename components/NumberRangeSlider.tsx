@@ -1,8 +1,24 @@
 'use client';
 
-import styles from '@components/NumberRangeSlider.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  root: "flex items-center justify-between",
+  amount: "flex-shrink-0 bg-[var(--theme-text)] text-[var(--theme-background)] font-normal px-[1ch]",
+  slider: [
+    "block w-full min-w-[10%] m-0 p-0 rounded-0 appearance-none bg-[var(--theme-border-subdued)]",
+    "focus:bg-[linear-gradient(to_right,transparent,var(--theme-focused-foreground))] focus:outline-none",
+    "hover:bg-[linear-gradient(to_right,transparent,var(--theme-focused-foreground))] hover:cursor-pointer",
+    "[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-[1ch] [&::-webkit-slider-thumb]:h-[calc(var(--font-size)*var(--theme-line-height-base))] [&::-webkit-slider-thumb]:bg-[var(--theme-button-foreground)] [&::-webkit-slider-thumb]:align-bottom [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:rounded-0",
+    "[&::-webkit-slider-runnable-track]:h-[calc(var(--font-size)*var(--theme-line-height-base))] [&::-webkit-slider-runnable-track]:bg-[var(--theme-border-subdued)] [&::-webkit-slider-runnable-track]:rounded-0",
+    "[&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-[1ch] [&::-moz-range-thumb]:h-[calc(var(--font-size)*var(--theme-line-height-base))] [&::-moz-range-thumb]:bg-[var(--theme-button-foreground)] [&::-moz-range-thumb]:align-bottom [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:rounded-0",
+    "[&::-moz-range-track]:h-[calc(var(--font-size)*var(--theme-line-height-base))] [&::-moz-range-track]:bg-[var(--theme-border-subdued)] [&::-moz-range-track]:rounded-0",
+    "[&::-ms-thumb]:appearance-none [&::-ms-thumb]:w-[1ch] [&::-ms-thumb]:h-[calc(var(--font-size)*var(--theme-line-height-base))] [&::-ms-thumb]:bg-[var(--theme-button-foreground)] [&::-ms-thumb]:align-bottom [&::-ms-thumb]:cursor-pointer [&::-ms-thumb]:border-0 [&::-ms-thumb]:rounded-0",
+    "[&::-ms-track]:h-[calc(var(--font-size)*var(--theme-line-height-base))] [&::-ms-track]:bg-transparent [&::-ms-track]:border-transparent [&::-ms-track]:text-transparent",
+    "[&::-ms-fill-lower]:bg-[var(--theme-border-subdued)] [&::-ms-fill-upper]:bg-[var(--theme-border-subdued)]"
+  ].join(" "),
+  left: ""
+};
 
 interface RangerProps {
   defaultValue?: number;

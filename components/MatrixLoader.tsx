@@ -1,8 +1,11 @@
 'use client';
 
-import styles from '@components/MatrixLoader.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  container: "w-full h-auto relative",
+  root: "block w-full bg-transparent"
+};
 
 interface MatrixLoaderProps {
   rows?: number;

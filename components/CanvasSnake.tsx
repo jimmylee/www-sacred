@@ -1,10 +1,14 @@
 'use client';
 
-import styles from '@components/CanvasSnake.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 
 import ActionButton from '@components/ActionButton';
+
+const styles = {
+  container: clsx("w-full h-auto relative"),
+  root: clsx("block w-full bg-transparent focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]")
+};
 
 interface SnakeProps {
   rows?: number;

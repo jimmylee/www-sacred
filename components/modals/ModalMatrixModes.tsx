@@ -1,8 +1,7 @@
 'use client';
 
-import styles from '@components/modals/ModalMatrixModes.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 import * as Utilities from '@common/utilities';
 
 import { useModals } from '@components/page/ModalContext';
@@ -10,6 +9,10 @@ import { useModals } from '@components/page/ModalContext';
 import Button from '@components/Button';
 import Card from '@components/Card';
 import MatrixLoader from '@components/MatrixLoader';
+
+const styles = {
+  root: "animate-fadeIn bg-[var(--theme-background-modal)] shadow-[0_0_0_1ch_var(--theme-border-subdued)] block font-normal mx-auto max-w-[64ch] px-[2ch] py-[calc(var(--font-size)*var(--theme-line-height-base))] select-none w-full"
+};
 
 interface ModalMatrixModesProps {
   buttonText?: string | any;
@@ -19,7 +22,7 @@ function ModalMatrixModes({ buttonText }: ModalMatrixModesProps) {
   const { close } = useModals();
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root)}>
       <Card title="MATRIX MODES">
         <Card title="KATAKANA DEFAULT">
           <MatrixLoader rows={32} mode="katakana" />

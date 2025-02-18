@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/examples/Denabase.module.scss';
-
 import * as React from 'react';
 
 import ActionButton from '@components/ActionButton';
@@ -10,6 +8,21 @@ import Divider from '@components/Divider';
 import Row from '@components/Row';
 import RowSpaceBetween from '@components/RowSpaceBetween';
 import SidebarLayout from '@components/SidebarLayout';
+
+const styles = {
+  root: "min-w-[68ch] mt-[calc(var(--theme-line-height-base)*1rem)]",
+  dna: "min-w-[71ch] [-webkit-text-size-adjust:100%]",
+  tag: "w-[3ch] h-[calc(var(--theme-line-height-base)*0.5rem)] flex-shrink-0 [box-shadow:inset_2px_0_0_var(--theme-text),inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text)]",
+  secondaryTag: "w-[3ch] self-stretch flex-shrink-0 [box-shadow:inset_2px_0_0_var(--theme-text),inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text)]",
+  small: "w-[13ch] flex-shrink-0 text-right",
+  smallWithBorder: "w-[13ch] flex-shrink-0 text-right [box-shadow:inset_0_2px_0_var(--theme-text)]",
+  smallSection: "w-[13ch] flex-shrink-0 min-w-[10%] text-right [box-shadow:inset_0_2px_0_var(--theme-text)]",
+  large: "w-[80%] min-w-[10%] text-right",
+  largeWithBorder: "w-[80%] min-w-[10%] text-right [box-shadow:inset_0_2px_0_var(--theme-text),inset_-2px_0_0_var(--theme-text)]",
+  largeSection: "w-[80%] min-w-[10%] text-right [box-shadow:inset_0_2px_0_var(--theme-text),inset_-2px_0_0_var(--theme-text)]",
+  absoluteTag: "absolute top-[calc(var(--theme-line-height-base)*-0.5rem)] left-0 h-[calc(var(--theme-line-height-base)*0.5rem)] w-[14.2ch] bg-[var(--theme-background)] [box-shadow:inset_2px_0_0_var(--theme-text),inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text)]",
+  box: "w-[7.1ch] flex-shrink-0 h-[calc(var(--theme-line-height-base)*3rem)] inline-flex items-center justify-center [box-shadow:inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text),inset_0_-2px_0_var(--theme-text)] first:[box-shadow:inset_2px_0_0_var(--theme-text),inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text),inset_0_-2px_0_var(--theme-text)]"
+};
 
 const Denabase = (props) => {
   return (

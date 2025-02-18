@@ -1,6 +1,5 @@
 'use client';
 
-import styles from '@components/Checkbox.module.scss';
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
 
@@ -13,6 +12,16 @@ interface CheckboxProps {
   tabIndex?: number;
   children?: React.ReactNode;
 }
+
+const styles = {
+  section: "flex items-start justify-between",
+  right: "min-w-[10%] w-full bg-[var(--theme-button-background)] pb-[calc(8px*var(--theme-line-height-base))] shadow-[inset_0_1px_0_0_var(--theme-border-subdued)] last:pb-0",
+  checked: "",
+  focused: "",
+  relative: "relative flex-shrink-0 inline-block align-baseline",
+  figure: "w-full h-full cursor-pointer text-[var(--theme-text)] bg-[var(--theme-button-foreground)] self-stretch inline-block px-[1ch] group-[.focused]:bg-[var(--theme-focused-foreground)]",
+  input: "absolute top-0 left-0 opacity-0 w-[1px] h-[1px]"
+};
 
 const Checkbox: React.FC<CheckboxProps> = ({ style, name, defaultChecked = false, onChange, children }) => {
   const checkboxId = `${name}-checkbox`;
@@ -61,7 +70,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ style, name, defaultChecked = false
     <div
       className={Utilities.classNames(styles.section, {
         [styles.checked]: isChecked,
-        [styles.focused]: isFocused,
+        "group focused": isFocused,
       })}
       style={style}
     >

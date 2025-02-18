@@ -1,8 +1,12 @@
 'use client';
 
 import * as React from 'react';
+import clsx from 'clsx';
 
-import styles from '@components/BarLoader.module.scss';
+const styles = {
+  root: clsx("bg-[var(--theme-border)] h-[calc(var(--font-size)*var(--theme-line-height-base))] whitespace-nowrap text-left align-bottom block"),
+  bar: clsx("bg-[linear-gradient(to_right,transparent,var(--theme-text))] h-full w-0 transition-[width] duration-100 linear")
+};
 
 interface BarLoaderProps {
   intervalRate?: number;

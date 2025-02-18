@@ -1,5 +1,3 @@
-import styles from '@components/DropdownMenu.module.scss';
-
 import * as React from 'react';
 
 import ActionButton from '@components/ActionButton';
@@ -7,6 +5,11 @@ import ActionListItem from '@components/ActionListItem';
 import ModalTrigger from '@components/ModalTrigger';
 
 import { useHotkeys } from '@modules/hotkeys';
+
+const styles = {
+  root: "block bg-[var(--theme-border)] font-normal",
+  footer: "bg-[var(--theme-background-modal-footer)] px-[1ch] py-[calc(var(--font-size)*0.5*var(--theme-line-height-base))]"
+};
 
 interface DropdownMenuItemProps {
   children: React.ReactNode;

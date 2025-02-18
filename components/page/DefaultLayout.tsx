@@ -1,6 +1,9 @@
-import styles from '@components/page/DefaultLayout.module.scss';
-
 import * as React from 'react';
+
+const styles = {
+  body: "max-w-[80ch]",
+  pixel: "h-[1px] w-[1px] absolute top-0 left-0"
+};
 
 interface DefaultLayoutProps {
   previewPixelSRC: string;
