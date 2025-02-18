@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-interface TableProps {
+export interface DataTableProps {
   data: string[][];
 }
 
@@ -34,7 +34,7 @@ const styles = {
   changed: "animate-[flash_2000ms_ease]"
 };
 
-const DataTable: React.FC<TableProps> = ({ data }) => {
+export const DataTable: React.FC<DataTableProps> = ({ data }) => {
   const tableRef = React.useRef<HTMLTableElement>(null);
   const prevDataRef = React.useRef<string[][]>(data);
 

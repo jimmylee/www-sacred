@@ -1,4 +1,4 @@
-import '@root/global.css';
+import '../global.css';
 
 import * as Constants from '@common/constants';
 import * as Utilities from '@common/utilities';
@@ -58,7 +58,7 @@ import ModalStack from '@components/ModalStack';
 import ModalTrigger from '@components/ModalTrigger';
 import Navigation from '@components/Navigation';
 import NumberRangeSlider from '@components/NumberRangeSlider';
-import Package from '@root/package.json';
+import Package from '../package.json';
 import RadioButtonGroup from '@components/RadioButtonGroup';
 import Row from '@components/Row';
 import RowSpaceBetween from '@components/RowSpaceBetween';
@@ -72,13 +72,13 @@ import Text from '@components/Text';
 import TextArea from '@components/TextArea';
 import TreeView from '@components/TreeView';
 import UpdatingDataTable from '@components/examples/UpdatingDataTable';
-import ModalDOMSnake from '@root/components/modals/ModalDOMSnake';
+import ModalDOMSnake from '@components/modals/ModalDOMSnake';
 
 export const dynamic = 'force-static';
 
 // NOTE(jimmylee)
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata
-export async function generateMetadata({ params, searchParams }) {
+export async function generateMetadata({ params, searchParams }: any) {
   const title = Package.name;
   const description = Package.description;
   const url = 'https://sacred.computer';
@@ -126,7 +126,7 @@ export async function generateMetadata({ params, searchParams }) {
 
 // NOTE(jimmylee)
 // https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts
-export default async function Page(props) {
+export default async function Page(props: any) {
   return (
     <DefaultLayout previewPixelSRC="https://intdev-global.s3.us-west-2.amazonaws.com/template-app-icon.png">
       <br />

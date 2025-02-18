@@ -10,7 +10,7 @@ const styles = {
   root: clsx("block w-full bg-transparent focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]")
 };
 
-interface PlatformerProps {
+export interface PlatformerProps {
   rows?: number;
 }
 
@@ -41,7 +41,7 @@ interface Block {
   y: number;
 }
 
-const CanvasPlatformer: React.FC<PlatformerProps> = ({ rows = 25 }) => {
+export const CanvasPlatformer: React.FC<PlatformerProps> = ({ rows = 25 }) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [focused, setFocused] = React.useState(false);
 

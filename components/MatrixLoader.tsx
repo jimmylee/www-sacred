@@ -7,7 +7,7 @@ const styles = {
   root: "block w-full bg-transparent"
 };
 
-interface MatrixLoaderProps {
+export interface MatrixLoaderProps {
   rows?: number;
   direction?: undefined | 'top-to-bottom' | 'left-to-right';
   mode?: undefined | 'greek' | 'katakana';
@@ -39,7 +39,7 @@ function onTextGeneration({ mode = 'greek' }) {
   return '0';
 }
 
-const MatrixLoader: React.FC<MatrixLoaderProps> = ({ rows = 25, direction = 'top-to-bottom', mode = 'greek' }) => {
+export const MatrixLoader: React.FC<MatrixLoaderProps> = ({ rows = 25, direction = 'top-to-bottom', mode = 'greek' }) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   React.useEffect(() => {

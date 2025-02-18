@@ -28,13 +28,13 @@ if (typeof document !== 'undefined') {
   document.head.appendChild(style);
 }
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   caretChars?: string | any;
   label?: string | any;
   isBlink?: boolean;
 };
 
-function Input({ caretChars, isBlink = true, label, placeholder, onChange, type, id, ...rest }: InputProps) {
+export function Input({ caretChars, isBlink = true, label, placeholder, onChange, type, id, ...rest }: InputProps) {
   const generatedId = React.useId();
   const inputId = id || generatedId;
 

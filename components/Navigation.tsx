@@ -10,7 +10,7 @@ const styles = {
   right: "flex-shrink-0"
 };
 
-interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
+export interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
   logoHref?: string;
   logoTarget?: React.HTMLAttributeAnchorTarget;
@@ -20,7 +20,7 @@ interface NavigationProps extends React.HTMLAttributes<HTMLElement> {
   right?: React.ReactNode;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ children, logoHref, logoTarget, onClickLogo, logo, left, right }) => {
+export const Navigation: React.FC<NavigationProps> = ({ children, logoHref, logoTarget, onClickLogo, logo, left, right }) => {
   let logoElement = <button className={styles.logo}>{logo}</button>;
 
   if (onClickLogo) {

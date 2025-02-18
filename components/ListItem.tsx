@@ -8,7 +8,7 @@ const styles = {
   root: "pl-[1ch] focus:outline-0 focus:bg-[var(--theme-focused-foreground)]"
 };
 
-const ListItem = ({ children }) => {
+export const ListItem = ({ children }: any) => {
   const itemRef = React.useRef<HTMLLIElement>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {

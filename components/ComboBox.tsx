@@ -11,12 +11,12 @@ const styles = {
   root: "p-0"
 };
 
-interface ComboBoxProps {
+export interface ComboBoxProps {
   data: string[][];
   label?: string;
 }
 
-function ComboBox({ data, label }: ComboBoxProps) {
+export function ComboBox({ data, label }: ComboBoxProps) {
   const [searchTerm, setSearchTerm] = React.useState('');
 
   const filtered = React.useMemo(() => {

@@ -10,7 +10,7 @@ const styles = {
   root: clsx("block w-full bg-transparent focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]")
 };
 
-interface SnakeProps {
+export interface CanvasSnakeProps {
   rows?: number;
 }
 
@@ -28,7 +28,7 @@ interface Position {
 
 type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
 
-const CanvasSnake = ({ rows = 25 }: SnakeProps) => {
+export const CanvasSnake = ({ rows = 25 }: CanvasSnakeProps) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [focused, setFocused] = React.useState(false);
   const directionRef = React.useRef<Direction>('RIGHT');

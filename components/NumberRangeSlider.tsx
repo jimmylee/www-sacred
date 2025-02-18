@@ -20,14 +20,14 @@ const styles = {
   left: ""
 };
 
-interface RangerProps {
+export interface NumberRangeSliderProps {
   defaultValue?: number;
   max?: number;
   min?: number;
   step?: number;
 }
 
-const NumberRangeSlider: React.FC<RangerProps> = ({ defaultValue = 0, max = 5000, min = 0, step = 1 }) => {
+export const NumberRangeSlider: React.FC<NumberRangeSliderProps> = ({ defaultValue = 0, max = 5000, min = 0, step = 1 }) => {
   const sliderRef = React.useRef<HTMLInputElement>(null);
   const [displayValue, setDisplayValue] = React.useState<number>(defaultValue);
 

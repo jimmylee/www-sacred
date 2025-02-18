@@ -1,33 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@root/*": [
-        "./*"
-      ],
-      "@system/*": [
-        "./system/*"
-      ],
-      "@demos/*": [
-        "./demos/*"
-      ],
-      "@common/*": [
-        "./common/*"
-      ],
-      "@data/*": [
-        "./data/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@pages/*": [
-        "./pages/*"
-      ],
-      "@modules/*": [
-        "./modules/*"
-      ]
-    },
-    "target": "es5",
+    "target": "es2019",
     "lib": [
       "dom",
       "dom.iterable",
@@ -35,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -44,22 +17,25 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "strictNullChecks": true
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@common/*": [
+        "common/*"
+      ],
+      "@modules/*": [
+        "modules/*"
+      ]
+    }
   },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "dist"
   ]
 }

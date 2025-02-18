@@ -12,12 +12,12 @@ const styles = {
   root: "animate-fadeIn bg-[var(--theme-background-modal)] shadow-[0_0_0_1ch_var(--theme-border-subdued)] block font-normal mx-auto max-w-[64ch] px-[2ch] py-[calc(var(--font-size)*var(--theme-line-height-base))] select-none w-full"
 };
 
-interface ModalAlertProps {
+export interface ModalAlertProps {
   buttonText?: string | any;
   message: string;
 }
 
-function ModalAlert({ message, buttonText }: ModalAlertProps) {
+export function ModalAlert({ message, buttonText }: ModalAlertProps) {
   const { close } = useModals();
 
   return (

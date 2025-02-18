@@ -12,14 +12,14 @@ const styles = {
   full: clsx("grid grid-cols-[repeat(auto-fit,minmax(60px,1fr))] whitespace-nowrap [&>*>*]:w-full")
 };
 
-const ButtonGroup = (props) => {
+export const ButtonGroup = (props: any) => {
   if (!props.items) {
     return null;
   }
 
   return (
     <div className={clsx(styles.root, props.isFull && styles.full)}>
-      {props.items.map((each) => {
+      {props.items.map((each: any) => {
         if (each.items) {
           return (
             <DropdownMenuTrigger key={each.body} items={each.items} hotkey={each.openHotkey}>

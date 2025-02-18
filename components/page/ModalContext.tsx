@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 export type ModalComponent<P = {}> = React.ComponentType<React.PropsWithoutRef<P>>;
@@ -8,13 +10,13 @@ export interface ModalState<P = any> {
   props: P;
 }
 
-interface ModalContextType {
+export interface ModalContextType {
   modalStack: ModalState[];
   open: <P>(component: ModalComponent<P>, props: P) => string;
   close: (key?: string) => void;
 }
 
-const ModalContext = React.createContext<ModalContextType | null>(null);
+export const ModalContext = React.createContext<ModalContextType | null>(null);
 
 export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [modalStack, setModalStack] = React.useState<ModalState<any>[]>([]);

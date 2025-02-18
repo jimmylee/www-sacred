@@ -10,11 +10,11 @@ const styles = {
   content: "min-w-[10%] w-full whitespace-pre bg-[var(--theme-border-subdued)] pl-[2ch]"
 };
 
-interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
+export interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
   children?: React.ReactNode;
 }
 
-const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(({ children, ...rest }, ref) => {
+export const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(({ children, ...rest }, ref) => {
   return (
     <pre className={styles.root} ref={ref} {...rest}>
       {String(children)

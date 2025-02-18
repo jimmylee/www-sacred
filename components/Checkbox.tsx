@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
 
-interface CheckboxProps {
+export interface CheckboxProps {
   style?: React.CSSProperties;
   checkboxStyle?: React.CSSProperties;
   name: string;
@@ -23,7 +23,7 @@ const styles = {
   input: "absolute top-0 left-0 opacity-0 w-[1px] h-[1px]"
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({ style, name, defaultChecked = false, onChange, children }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ style, name, defaultChecked = false, onChange, children }) => {
   const checkboxId = `${name}-checkbox`;
   const inputRef = React.useRef<HTMLInputElement>(null);
 

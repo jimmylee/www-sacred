@@ -13,13 +13,13 @@ import SidebarLayout from '@components/SidebarLayout';
 
 import * as React from 'react';
 
-interface MessagesInterfaceProps extends React.HTMLAttributes<HTMLSpanElement> {}
+export interface MessagesInterfaceProps extends React.HTMLAttributes<HTMLSpanElement> {}
 
-const ChatPreviewInline = (props) => {
+const ChatPreviewInline = (props: any) => {
   return <RowEllipsis style={{ opacity: 0.5, marginBottom: `10px` }}>{props.children}</RowEllipsis>;
 };
 
-const MessagesInterface: React.FC<MessagesInterfaceProps> = () => {
+export const MessagesInterface: React.FC<MessagesInterfaceProps> = () => {
   return (
     <div style={{ minWidth: '28ch' }}>
       <Navigation

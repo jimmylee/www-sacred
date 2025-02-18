@@ -34,11 +34,11 @@ const getPieceSymbol = (piece: string) => {
   return mapping[piece] || '';
 };
 
-interface ChessboardProps {
+export interface ChessboardProps {
   board: string[][];
 }
 
-const Chessboard: React.FC<ChessboardProps> = ({ board }) => {
+export const Chessboard: React.FC<ChessboardProps> = ({ board }) => {
   return (
     <table className={styles.board}>
       <tbody>

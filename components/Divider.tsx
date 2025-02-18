@@ -6,13 +6,13 @@ const styles = {
   line: "bg-[var(--theme-text)] block flex-shrink-0 h-[2px] w-full"
 };
 
-interface DividerProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface DividerProps extends React.HTMLAttributes<HTMLSpanElement> {
   children?: React.ReactNode;
   type?: string | any;
   style?: any;
 }
 
-const Divider: React.FC<DividerProps> = ({ children, style, type }) => {
+export const Divider: React.FC<DividerProps> = ({ children, style, type }) => {
   if (type === 'GRADIENT') {
     return <div className={styles.gradient} style={style} />;
   }

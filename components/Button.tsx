@@ -11,13 +11,13 @@ const styles = {
   disabled: clsx("bg-[var(--theme-button-background)] text-[var(--theme-button-foreground)] cursor-not-allowed")
 };
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'PRIMARY' | 'SECONDARY';
   isDisabled?: boolean;
   children?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ theme = 'PRIMARY', isDisabled, children, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ theme = 'PRIMARY', isDisabled, children, ...rest }) => {
   let buttonClasses = clsx(styles.root, styles.primary);
 
   if (theme === 'SECONDARY') {

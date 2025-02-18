@@ -11,7 +11,7 @@ const styles = {
   footer: "bg-[var(--theme-background-modal-footer)] px-[1ch] py-[calc(var(--font-size)*0.5*var(--theme-line-height-base))]"
 };
 
-interface DropdownMenuItemProps {
+export interface DropdownMenuItemProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
   href?: string;
@@ -21,12 +21,12 @@ interface DropdownMenuItemProps {
   modalProps?: Record<string, unknown>;
 }
 
-interface DropdownMenuProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DropdownMenuProps extends React.HTMLAttributes<HTMLDivElement> {
   onClose?: (event?: MouseEvent | TouchEvent | KeyboardEvent) => void;
   items?: DropdownMenuItemProps[];
 }
 
-const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props, ref) => {
+export const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props, ref) => {
   const { onClose, items, style, ...rest } = props;
 
   const handleHotkey = () => {

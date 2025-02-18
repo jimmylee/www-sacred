@@ -18,12 +18,12 @@ const styles = {
   hiddenElement: "absolute top-0 left-0 w-full h-full text-transparent bg-transparent caret-transparent border-none resize-none outline-none overflow-hidden p-0 m-0 leading-[var(--theme-line-height-base)] text-[var(--font-size)] font-inherit"
 };
 
-type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+export type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   autoPlay?: string;
   autoPlaySpeedMS?: number;
   isBlink?: boolean;
 };
-function TextArea({ autoPlay, autoPlaySpeedMS = 40, isBlink, placeholder, onChange, ...rest }: TextAreaProps) {
+export function TextArea({ autoPlay, autoPlaySpeedMS = 40, isBlink, placeholder, onChange, ...rest }: TextAreaProps) {
   const textAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
   const measurementRef = React.useRef<HTMLDivElement | null>(null);
 

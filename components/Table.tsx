@@ -7,11 +7,11 @@ const styles = {
   body: ""
 };
 
-type TableProps = React.HTMLAttributes<HTMLElement> & {
+export type TableProps = React.HTMLAttributes<HTMLElement> & {
   children?: React.ReactNode;
 };
 
-const Table = ({ children, ...rest }) => {
+export const Table: React.FC<TableProps> = ({ children, ...rest }) => {
   return (
     <table className={styles.root} {...rest}>
       <tbody className={styles.body}>{children}</tbody>

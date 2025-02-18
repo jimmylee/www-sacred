@@ -24,7 +24,7 @@ const styles = {
   box: "w-[7.1ch] flex-shrink-0 h-[calc(var(--theme-line-height-base)*3rem)] inline-flex items-center justify-center [box-shadow:inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text),inset_0_-2px_0_var(--theme-text)] first:[box-shadow:inset_2px_0_0_var(--theme-text),inset_-2px_0_0_var(--theme-text),inset_0_2px_0_var(--theme-text),inset_0_-2px_0_var(--theme-text)]"
 };
 
-const Denabase = (props) => {
+export const Denabase = (props: any) => {
   return (
     <>
       <Card style={{ overflowWrap: 'break-word' }}>

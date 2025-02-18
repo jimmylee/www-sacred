@@ -22,7 +22,7 @@ const styles = {
   customContent: "w-full flex items-center justify-center h-[calc(var(--theme-line-height-base)*(var(--font-size)*24.5))]"
 };
 
-const RadarMarker = (props) => {
+export const RadarMarker = (props: any) => {
   return (
     <div className={styles.cross}>
       <RowSpaceBetween>
@@ -37,7 +37,7 @@ const RadarMarker = (props) => {
   );
 };
 
-const DashboardRadar = (props) => {
+export const DashboardRadar = (props: any) => {
   return (
     <div className={styles.root}>
       <SidebarLayout

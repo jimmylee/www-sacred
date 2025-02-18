@@ -14,13 +14,13 @@ const styles = {
   root: "inline-block relative"
 };
 
-interface DropdownMenuTriggerProps {
+export interface DropdownMenuTriggerProps {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>;
   items: any;
   hotkey?: string;
 }
 
-function DropdownMenuTrigger({ children, items, hotkey }: DropdownMenuTriggerProps) {
+export function DropdownMenuTrigger({ children, items, hotkey }: DropdownMenuTriggerProps) {
   const [open, setOpen] = React.useState(false);
   const [focusChildren, setFocusChildren] = React.useState(false);
   const [willClose, setWillClose] = React.useState(false);

@@ -10,7 +10,7 @@ const styles = {
   actions: "flex justify-between items-center max-w-[24ch] mx-auto px-[2ch]"
 };
 
-interface DialogProps {
+export interface DialogProps {
   title?: React.ReactNode;
   children?: React.ReactNode;
   style?: React.CSSProperties;
@@ -18,7 +18,7 @@ interface DialogProps {
   onCancel?: () => void;
 }
 
-const Dialog: React.FC<DialogProps> = ({ title, children, style, onConfirm, onCancel }) => {
+export const Dialog: React.FC<DialogProps> = ({ title, children, style, onConfirm, onCancel }) => {
   const titleId = React.useId();
   const descId = React.useId();
 
