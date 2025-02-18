@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-const DebugGrid: React.FC = () => {
+export const DebugGrid: React.FC = () => {
   React.useEffect(() => {
     const debugGrid = document.createElement('div');
     let isVisible = false;

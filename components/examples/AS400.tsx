@@ -10,11 +10,11 @@ import TableRow from '@components/TableRow';
 import TableColumn from '@components/TableColumn';
 import TextArea from '@components/TextArea';
 
-type AS400Props = React.HTMLAttributes<HTMLElement> & {
+export type AS400Props = React.HTMLAttributes<HTMLElement> & {
   children?: React.ReactNode;
 };
 
-const AS400 = () => {
+export const AS400 = () => {
   return (
     <>
       <Card>

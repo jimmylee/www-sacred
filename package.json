@@ -1,31 +1,56 @@
 {
-  "name": "srcl",
+  "name": "srcl-tailwind",
   "description": "SRCL is an open-source React component and style repository that helps you build web applications, desktop applications, and static websites with terminal aesthetics.",
   "engines": {
     "node": ">=18"
   },
   "license": "MIT",
   "version": "1.1.4",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "components",
+    "global.css"
+  ],
   "scripts": {
     "dev": "next -p 10000",
-    "build": "next build",
+    "build": "tsup",
+    "build:dev": "tsup --watch",
+    "prepublishOnly": "npm run build",
     "start": "PORT=10000 next start",
     "lint": "next lint"
   },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": "^3.0.0 || ^4.0.0"
+  },
   "dependencies": {
-    "clsx": "^2.1.1",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.10.16",
+    "@tailwindcss/postcss": "^4.0.6",
+    "@types/node": "^22.12.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.20",
     "next": "^15.1.6",
     "postcss": "^8.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.6"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.6",
-    "@types/node": "^22.12.0",
-    "@types/react": "^19.0.10",
-    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^4.0.6",
     "ts-node": "^10.9.2",
+    "tsup": "^8.0.0",
     "typescript": "^5.7.3"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./global.css": "./global.css"
   }
 }

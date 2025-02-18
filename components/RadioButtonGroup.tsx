@@ -4,12 +4,12 @@ import * as React from 'react';
 
 import RadioButton from '@components/RadioButton';
 
-interface RadioButtonGroupProps {
+export interface RadioButtonGroupProps {
   options: { value: string; label: string }[];
   defaultValue?: string;
 }
 
-const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, defaultValue = '' }) => {
+export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({ options, defaultValue = '' }) => {
   const [selectedValue, setSelectedValue] = React.useState<string>(defaultValue);
 
   const handleSelect = (value: string) => {

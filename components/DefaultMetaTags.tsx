@@ -1,4 +1,4 @@
-export default function DefaultMetaTags() {
+export function DefaultMetaTags() {
   return (
     <>
       <meta httpEquiv="content-language" content="en-us" />
@@ -9,3 +9,5 @@ export default function DefaultMetaTags() {
     </>
   );
 }
+
+export default DefaultMetaTags;

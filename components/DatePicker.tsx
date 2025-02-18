@@ -13,7 +13,7 @@ const styles = {
   dayCell: "outline-none px-[1ch] text-center"
 };
 
-interface DatePickerProps {
+export interface DatePickerProps {
   year?: number;
   month?: number;
 }
@@ -27,7 +27,7 @@ const MONTH_NAMES = [
 
 const MAX_CELLS = 42;
 
-const DatePicker: React.FC<DatePickerProps> = ({ year, month }) => {
+export const DatePicker: React.FC<DatePickerProps> = ({ year, month }) => {
   const today = new Date();
   const [currentYear, setYear] = React.useState(year || today.getFullYear());
   const [currentMonth, setMonth] = React.useState(month || today.getMonth() + 1);

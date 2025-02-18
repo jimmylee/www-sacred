@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-interface OutsideElementEventProps {
+export interface OutsideElementEventProps {
   className?: string;
   children: React.ReactNode;
   onOutsideEvent: (event: MouseEvent | TouchEvent) => void;
   style?: React.CSSProperties;
 }
 
-const OutsideElementEvent: React.FC<OutsideElementEventProps> = ({ className, children, onOutsideEvent, style }) => {
+export const OutsideElementEvent: React.FC<OutsideElementEventProps> = ({ className, children, onOutsideEvent, style }) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   const handleOutsideEvent = React.useCallback(

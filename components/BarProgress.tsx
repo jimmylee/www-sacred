@@ -9,13 +9,13 @@ const styles = {
   measure: clsx("invisible absolute pointer-events-none")
 };
 
-interface BarProgressProps {
+export interface BarProgressProps {
   intervalRate?: number;
   progress?: number;
   fillChar?: string;
 }
 
-const BarProgress: React.FC<BarProgressProps> = ({ intervalRate, progress, fillChar = '░' }) => {
+export const BarProgress: React.FC<BarProgressProps> = ({ intervalRate, progress, fillChar = '░' }) => {
   const [currentProgress, setCurrentProgress] = React.useState(progress ?? 0);
   const [containerWidth, setContainerWidth] = React.useState(0);
   const [charWidth, setCharWidth] = React.useState(0);

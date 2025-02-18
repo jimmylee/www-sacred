@@ -9,7 +9,7 @@ const styles = {
   right: "min-w-[10%] w-full bg-[var(--theme-foreground)]"
 };
 
-interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'style' | 'className' | 'children'> {
+export interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'style' | 'className' | 'children'> {
   src?: string;
   href?: string;
   target?: string;
@@ -17,7 +17,7 @@ interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'style'
   children?: React.ReactNode;
 }
 
-const Avatar: React.FC<AvatarProps> = (props) => {
+export const Avatar: React.FC<AvatarProps> = (props) => {
   const { src, style: propStyle, href, target, children, ...rest } = props;
 
   const backgroundStyle = src ? { 

@@ -12,13 +12,13 @@ const styles = {
   title: clsx("flex-shrink-0 px-[1ch] text-[var(--font-size)] font-normal")
 };
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   title?: string | any;
   mode?: string | any;
 }
 
-const Card: React.FC<CardProps> = ({ children, mode, title, style, ...rest }) => {
+export const Card: React.FC<CardProps> = ({ children, mode, title, style, ...rest }) => {
   let titleElement = (
     <header className={styles.action}>
       <div className={styles.left} aria-hidden="true"></div>

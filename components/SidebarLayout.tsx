@@ -11,7 +11,7 @@ const styles = {
   content: "min-w-[10%] w-full"
 };
 
-interface SidebarLayoutProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'> {
+export interface SidebarLayoutProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'> {
   children?: React.ReactNode;
   sidebar?: React.ReactNode;
   defaultSidebarWidth?: number;
@@ -22,7 +22,7 @@ interface SidebarLayoutProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
 const LINE_HEIGHT = 20;
 const CHARACTER_WIDTH = 9.6;
 
-const SidebarLayout: React.FC<SidebarLayoutProps> = ({ defaultSidebarWidth = 20, children, sidebar, isShowingHandle = false, isReversed = false, ...rest }) => {
+export const SidebarLayout: React.FC<SidebarLayoutProps> = ({ defaultSidebarWidth = 20, children, sidebar, isShowingHandle = false, isReversed = false, ...rest }) => {
   const [sidebarWidth, setSidebarWidth] = React.useState(defaultSidebarWidth);
   const handleRef = React.useRef<HTMLDivElement>(null);
 

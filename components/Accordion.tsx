@@ -12,13 +12,13 @@ const styles = {
   active: "pl-[1ch]"
 };
 
-interface AccordionProps {
+export interface AccordionProps {
   defaultValue?: boolean;
   title: string;
   children?: React.ReactNode;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ defaultValue = false, title, children }) => {
+export const Accordion: React.FC<AccordionProps> = ({ defaultValue = false, title, children }) => {
   const [show, setShow] = React.useState<boolean>(defaultValue);
   const accordionRef = React.useRef<HTMLDivElement | null>(null);
 

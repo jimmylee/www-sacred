@@ -1,3 +1,4 @@
+import '../styles.css';  // This imports both Tailwind and your global styles
 import Providers from '@components/Providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

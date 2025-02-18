@@ -12,7 +12,7 @@ const styles = {
   item: "border-0 cursor-pointer outline-0 pl-[6ch] select-none hover:bg-[var(--theme-focused-foreground)] focus:bg-[var(--theme-focused-foreground)] focus:border-0 focus:outline-0"
 };
 
-interface SelectProps {
+export interface SelectProps {
   name: string;
   options: string[];
   placeholder?: string;
@@ -20,7 +20,7 @@ interface SelectProps {
   onChange?: (selectedValue: string) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValue = '', onChange }) => {
+export const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValue = '', onChange }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [index, setIndex] = React.useState(-1);
   const [selectedValue, setSelectedValue] = React.useState(defaultValue);

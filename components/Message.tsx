@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 const styles = {
   message: "flex items-start justify-between mb-[calc(var(--font-size)*var(--theme-line-height-base))] last:mb-0",
   left: "self-stretch flex-shrink-0 flex items-end relative",
@@ -8,7 +6,7 @@ const styles = {
   bubble: "inline-block bg-[var(--theme-border)] py-[calc(8px*var(--theme-line-height-base))] px-[1ch] shadow-[1ch_1ch_0_0_var(--theme-border-subdued)]"
 };
 
-export default function Message(props) {
+export function Message(props: any) {
   return (
     <div className={styles.message}>
       <div className={styles.left}>
@@ -20,3 +18,5 @@ export default function Message(props) {
     </div>
   );
 }
+
+export default Message;

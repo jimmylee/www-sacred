@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardDoubleProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   title?: string | any;
   mode?: string | any;
@@ -19,7 +19,7 @@ const styles = {
   borderChildren: "block"
 };
 
-const CardDouble: React.FC<CardProps> = ({ children, mode, title, style, ...rest }) => {
+export const CardDouble: React.FC<CardDoubleProps> = ({ children, mode, title, style, ...rest }) => {
   let titleElement = (
     <header className={styles.action}>
       <div className={styles.left} aria-hidden="true"></div>

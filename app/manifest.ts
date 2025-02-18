@@ -1,4 +1,4 @@
-import Package from '@root/package.json';
+import Package from '../package.json';
 
 import { MetadataRoute } from 'next';
 
