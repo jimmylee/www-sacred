@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "dev": "next -p 10000",
-    "build": "tsup",
-    "build:dev": "tsup --watch",
+    "build": "tsup --config tsup.config.ts",
+    "build:dev": "tsup --config tsup.config.ts --watch",
     "prepublishOnly": "npm run build",
     "start": "PORT=10000 next start",
     "lint": "next lint"
@@ -50,6 +50,21 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./global.css": "./global.css"
+    "./global.css": "./global.css",
+    "./*": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js",
+      "require": "./dist/components/*.cjs"
+    },
+    "./*/": {
+      "types": "./dist/components/*/index.d.ts",
+      "import": "./dist/components/*/index.js",
+      "require": "./dist/components/*/index.cjs"
+    },
+    "./*/*": {
+      "types": "./dist/components/*/*.d.ts",
+      "import": "./dist/components/*/*.js",
+      "require": "./dist/components/*/*.cjs"
+    }
   }
 }

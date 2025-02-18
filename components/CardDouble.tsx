@@ -8,7 +8,7 @@ export interface CardDoubleProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const styles = {
-  card: "relative flex p-0",
+  card: "relative block p-0",
   action: "flex items-end justify-between",
   left: "min-w-[10%] w-full border-t-[6px] border-l-[6px] border-solid border-[var(--theme-text)] [border-top-style:double] [border-left-style:double] pt-[calc(var(--card-double-top-gutter)*var(--theme-line-height-base))] pr-[2ch] pb-0 pl-[1ch]",
   right: "min-w-[10%] w-full border-t-[6px] border-r-[6px] border-solid border-[var(--theme-text)] [border-top-style:double] [border-right-style:double] pt-[calc(var(--card-double-top-gutter)*var(--theme-line-height-base))] pr-[2ch] pb-0 pl-[1ch]",

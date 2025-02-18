@@ -1,23 +1,23 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['index.ts'],
-  format: ['cjs', 'esm'],
-  dts: {
-    compilerOptions: {
-      incremental: false
-    }
-  },
-  splitting: false,
-  sourcemap: true,
+  entry: [
+    'components/**/*.tsx',
+    'index.ts'
+  ],
+  format: ['esm', 'cjs'],
+  dts: true,
   clean: true,
-  treeshake: true,
-  external: ['react', 'react-dom', 'tailwindcss'],
-  noExternal: ['@common/*', '@modules/*'],
   outDir: 'dist',
-  target: 'es2019',
-  tsconfig: 'tsconfig.json',
-  loader: {
-    '.css': 'css'
+  treeshake: true,
+  splitting: true,
+  outExtension({ format }) {
+    return {
+      js: format === 'cjs' ? '.cjs' : '.js'
+    };
+  },
+  platform: 'browser',
+  esbuildOptions(options) {
+    options.outbase = './'
   }
 }); 
