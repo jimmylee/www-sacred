@@ -6,11 +6,11 @@ const styles = {
   row: "block outline-0 border-0 transition-[background] duration-200 ease whitespace-nowrap overflow-hidden text-ellipsis focus:bg-[var(--theme-focused-foreground)]"
 };
 
-type RowEllipsisProps = React.HTMLAttributes<HTMLElement> & {
+export type RowEllipsisProps = React.HTMLAttributes<HTMLElement> & {
   children?: React.ReactNode;
 };
 
-const RowEllipsis = React.forwardRef<HTMLElement, RowEllipsisProps>(({ children, ...rest }, ref) => {
+export const RowEllipsis = React.forwardRef<HTMLElement, RowEllipsisProps>(({ children, ...rest }, ref) => {
   return (
     <section className={styles.row} ref={ref} {...rest}>
       {children}

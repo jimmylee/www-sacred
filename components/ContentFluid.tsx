@@ -4,11 +4,11 @@ const styles = {
   root: "block min-w-[10%] w-full self-stretch"
 };
 
-interface ContentFluidProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface ContentFluidProps extends React.HTMLAttributes<HTMLSpanElement> {
   children?: React.ReactNode;
 }
 
-const ContentFluid: React.FC<ContentFluidProps> = ({ children, ...rest }) => {
+export const ContentFluid: React.FC<ContentFluidProps> = ({ children, ...rest }) => {
   return <div className={styles.root}>{children}</div>;
 };
 

@@ -8,12 +8,12 @@ const styles = {
   bar: clsx("bg-[linear-gradient(to_right,transparent,var(--theme-text))] h-full w-0 transition-[width] duration-100 linear")
 };
 
-interface BarLoaderProps {
+export interface BarLoaderProps {
   intervalRate?: number;
   progress?: number;
 }
 
-const BarLoader: React.FC<BarLoaderProps> = ({ intervalRate, progress }) => {
+export const BarLoader: React.FC<BarLoaderProps> = ({ intervalRate, progress }) => {
   const [currentProgress, setCurrentProgress] = React.useState<number>(progress || 0);
 
   React.useEffect(() => {

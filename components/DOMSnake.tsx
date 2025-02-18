@@ -11,7 +11,7 @@ const styles = {
   food: "bg-[var(--theme-focused-foreground)]"
 };
 
-interface SnakeGameProps {
+export interface SnakeGameProps {
   width?: number;
   height?: number;
   startSpeed?: number;
@@ -29,7 +29,7 @@ const DIRECTIONS: Record<string, Position> = {
   ArrowRight: { x: 1, y: 0 },
 };
 
-export default function SnakeGame(props: SnakeGameProps) {
+export function SnakeGame(props: SnakeGameProps) {
   const GRID_WIDTH: number = props.width || 40;
   const GRID_HEIGHT: number = props.height || 20;
   const START_SPEED: number = props.startSpeed || 150;
@@ -174,3 +174,5 @@ export default function SnakeGame(props: SnakeGameProps) {
     </div>
   );
 }
+
+export default SnakeGame;

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import ButtonGroup from '@components/ButtonGroup';
 
-interface ActionBarItem {
+export interface ActionBarItem {
   hotkey?: string;
   onClick?: () => void;
   openHotkey?: string;
@@ -12,7 +12,7 @@ interface ActionBarItem {
   items?: any;
 }
 
-interface ActionBarProps {
+export interface ActionBarProps {
   items: ActionBarItem[];
 }
 
@@ -20,7 +20,7 @@ const styles = {
   root: "bg-[var(--theme-background)] shadow-[inset_0_0_0_1px_var(--theme-border)]"
 };
 
-const ActionBar: React.FC<ActionBarProps> = ({ items }) => {
+export const ActionBar: React.FC<ActionBarProps> = ({ items }) => {
   return (
     <div className={styles.root}>
       <ButtonGroup items={items} />

@@ -8,16 +8,16 @@ const styles = {
   symbol: clsx("inline-block mx-[9px] my-0")
 };
 
-interface BreadCrumbsItem {
+export interface BreadCrumbsItem {
   url?: string;
   name: string;
 }
 
-interface BreadCrumbsProps {
+export interface BreadCrumbsProps {
   items: BreadCrumbsItem[];
 }
 
-const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ items }) => {
+export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ items }) => {
   return (
     <nav aria-label="breadcrumb" className={styles.root}>
       {items.map((item, index) => {

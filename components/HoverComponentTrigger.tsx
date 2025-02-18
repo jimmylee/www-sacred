@@ -13,13 +13,13 @@ const styles = {
   root: "inline-block relative"
 };
 
-interface HoverComponentTriggerProps {
+export interface HoverComponentTriggerProps {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>;
   text: string;
   component: 'popover' | 'tooltip';
 }
 
-function HoverComponentTrigger({ children, text, component }: HoverComponentTriggerProps) {
+export function HoverComponentTrigger({ children, text, component }: HoverComponentTriggerProps) {
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState<Position.Placement>('bottom');
   const [position, setPosition] = React.useState<{ top: number; left: number }>({ top: 0, left: 0 });

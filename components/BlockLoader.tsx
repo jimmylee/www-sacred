@@ -21,11 +21,11 @@ const SEQUENCES = [
   ['◐', '◓', '◑', '◒'],
 ];
 
-interface BlockLoaderProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'children'> {
+export interface BlockLoaderProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'children'> {
   mode?: number;
 }
 
-const BlockLoader: React.FC<BlockLoaderProps> = ({ mode = 0 }) => {
+export const BlockLoader: React.FC<BlockLoaderProps> = ({ mode = 0 }) => {
   if (!SEQUENCES[mode]) {
     return <span className={styles.root}>�</span>;
   }

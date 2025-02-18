@@ -10,9 +10,9 @@ const styles = {
   item: "pointer-events-auto absolute transition-[opacity,transform] duration-[0.2s,0.4s] ease-[ease,ease]"
 };
 
-interface ModalStackProps {}
+export interface ModalStackProps {}
 
-const ModalStack: React.FC<ModalStackProps> = () => {
+export const ModalStack: React.FC<ModalStackProps> = () => {
   const { modalStack } = useModals();
 
   const totalModals = modalStack.length;

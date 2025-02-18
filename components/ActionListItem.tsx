@@ -6,7 +6,7 @@ const styles = {
   text: "inline-flex items-center justify-start self-stretch bg-[var(--theme-button-background)] min-w-[10%] w-full px-[1ch] select-none"
 };
 
-interface ActionListItemProps {
+export interface ActionListItemProps {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   children?: React.ReactNode;
@@ -15,7 +15,7 @@ interface ActionListItemProps {
   onClick?: React.MouseEventHandler<HTMLDivElement | HTMLAnchorElement>;
 }
 
-const ActionListItem: React.FC<ActionListItemProps> = (props) => {
+export const ActionListItem: React.FC<ActionListItemProps> = (props) => {
   const { href, target, onClick, children, icon, style } = props;
 
   if (href) {

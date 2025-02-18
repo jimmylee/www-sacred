@@ -115,7 +115,7 @@ interface DefaultActionBarProps {
   }[];
 }
 
-const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
+export const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
   const [isGrid, setGrid] = React.useState(false);
   useHotkeys('ctrl+g', () => toggleDebugGrid());
 

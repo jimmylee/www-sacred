@@ -16,7 +16,7 @@ const styles = {
   root: "animate-fadeIn bg-[var(--theme-background-modal)] shadow-[0_0_0_1ch_var(--theme-border-subdued)] block font-normal mx-auto max-w-[64ch] px-[2ch] py-[calc(var(--font-size)*var(--theme-line-height-base))] select-none w-full"
 };
 
-interface ModalErrorProps {
+export interface ModalErrorProps {
   buttonText?: string | any;
   message: string | any;
   title?: string;
@@ -24,7 +24,7 @@ interface ModalErrorProps {
 
 // TODO(jimmylee)
 // Enter doesn't always work for some reason.
-function ModalError({ message, buttonText, title }: ModalErrorProps) {
+export function ModalError({ message, buttonText, title }: ModalErrorProps) {
   const { close } = useModals();
 
   useHotkeys('enter', () => close());

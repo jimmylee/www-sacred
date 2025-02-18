@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import * as Utilities from '@common/utilities';
 
-interface ActionButtonProps {
+export interface ActionButtonProps {
   onClick?: () => void;
   hotkey?: any;
   children?: React.ReactNode;
@@ -19,7 +19,7 @@ const styles = {
   selected: "bg-[var(--theme-focused-foreground)]"
 };
 
-const ActionButton = React.forwardRef<HTMLDivElement, ActionButtonProps>(({ onClick, hotkey, children, style, rootStyle, isSelected }, ref) => {
+export const ActionButton = React.forwardRef<HTMLDivElement, ActionButtonProps>(({ onClick, hotkey, children, style, rootStyle, isSelected }, ref) => {
   return (
     <div className={clsx(styles.root, 'group', isSelected && styles.selected)} style={rootStyle} onClick={onClick} tabIndex={0} ref={ref} role="button">
       {Utilities.isEmpty(hotkey) ? null : <span className={styles.hotkey}>{hotkey}</span>}

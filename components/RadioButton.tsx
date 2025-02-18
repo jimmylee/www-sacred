@@ -13,7 +13,7 @@ const styles = {
   input: "absolute h-[1px] w-[1px] opacity-0 bg-transparent border-0 outline-0 m-0 p-0"
 };
 
-interface RadioButtonProps {
+export interface RadioButtonProps {
   style?: React.CSSProperties;
   name: string;
   value: string;
@@ -22,7 +22,7 @@ interface RadioButtonProps {
   children?: React.ReactNode;
 }
 
-const RadioButton: React.FC<RadioButtonProps> = ({ style, name, value, selected = false, onSelect, children }) => {
+export const RadioButton: React.FC<RadioButtonProps> = ({ style, name, value, selected = false, onSelect, children }) => {
   const radioId = `${name}-${value}-radio`;
   const [isFocused, setIsFocused] = React.useState(false);
 
