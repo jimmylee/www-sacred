@@ -7,9 +7,9 @@
   "license": "MIT",
   "version": "1.1.4",
   "scripts": {
-    "dev": "next -p 11111",
+    "dev": "next -p 10000",
     "build": "next build",
-    "start": "PORT=11111 next start",
+    "start": "PORT=10000 next start",
     "lint": "next lint"
   },
   "dependencies": {
