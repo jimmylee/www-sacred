@@ -1,12 +1,16 @@
 'use client';
 
-import styles from '@components/CanvasSnake.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 
 import ActionButton from '@components/ActionButton';
 
-interface SnakeProps {
+const styles = {
+  container: clsx("w-full h-auto relative"),
+  root: clsx("block w-full bg-transparent focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]")
+};
+
+export interface CanvasSnakeProps {
   rows?: number;
 }
 
@@ -24,7 +28,7 @@ interface Position {
 
 type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
 
-const CanvasSnake = ({ rows = 25 }: SnakeProps) => {
+export const CanvasSnake = ({ rows = 25 }: CanvasSnakeProps) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [focused, setFocused] = React.useState(false);
   const directionRef = React.useRef<Direction>('RIGHT');

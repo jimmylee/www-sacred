@@ -1,11 +1,18 @@
 'use client';
 
-import styles from '@components/Select.module.scss';
-
 import * as React from 'react';
-import * as Utilities from '@common/utilities';
+import clsx from 'clsx';
 
-interface SelectProps {
+const styles = {
+  select: "flex items-start cursor-default justify-between outline-none relative z-[var(--z-index-page-select)]",
+  control: "bg-[var(--theme-button-foreground)] cursor-pointer flex-shrink-0 px-[1ch] flex items-center h-[calc(var(--theme-line-height-base)*1rem)]",
+  focused: "bg-[var(--theme-text)] text-[var(--theme-background)]",
+  display: "bg-[var(--theme-border)] border-0 text-[var(--theme-text)] cursor-pointer font-[var(--font-family-mono)] text-[var(--font-size)] leading-[calc(var(--theme-line-height-base)*1rem)] m-0 min-w-[10%] outline-0 p-0 pl-[3ch] text-left select-none w-full hover:bg-[var(--theme-focused-foreground)] focus:bg-[var(--theme-focused-foreground)] focus:border-0 focus:outline-0",
+  menu: "bg-[var(--theme-border-subdued)] left-[3ch] right-0 list-none p-0 z-[var(--z-index-page-select)]",
+  item: "border-0 cursor-pointer outline-0 pl-[6ch] select-none hover:bg-[var(--theme-focused-foreground)] focus:bg-[var(--theme-focused-foreground)] focus:border-0 focus:outline-0"
+};
+
+export interface SelectProps {
   name: string;
   options: string[];
   placeholder?: string;
@@ -13,7 +20,7 @@ interface SelectProps {
   onChange?: (selectedValue: string) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValue = '', onChange }) => {
+export const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValue = '', onChange }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [index, setIndex] = React.useState(-1);
   const [selectedValue, setSelectedValue] = React.useState(defaultValue);
@@ -45,7 +52,7 @@ const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValu
     <>
       <section className={styles.select}>
         <figure
-          className={Utilities.classNames(isOpen ? styles.focused : null, styles.control)}
+          className={clsx(styles.control, isOpen && styles.focused)}
           onClick={() => {
             isOpen ? handleClose() : handleOpen();
           }}
@@ -70,7 +77,7 @@ const Select: React.FC<SelectProps> = ({ name, options, placeholder, defaultValu
         <ul className={styles.menu} role="listbox">
           {options.map((option, idx) => {
             return (
-              <li key={option} role="option" tabIndex={0} className={Utilities.classNames(styles.item)} onClick={() => handleSelect(option)}>
+              <li key={option} role="option" tabIndex={0} className={styles.item} onClick={() => handleSelect(option)}>
                 {option}
               </li>
             );

@@ -1,16 +1,21 @@
 'use client';
 
-import styles from '@components/BarProgress.module.scss';
+import clsx from 'clsx';
 
 import * as React from 'react';
 
-interface BarProgressProps {
+const styles = {
+  root: clsx("block bg-[var(--theme-border-subdued)] whitespace-nowrap text-left align-bottom overflow-hidden relative"),
+  measure: clsx("invisible absolute pointer-events-none")
+};
+
+export interface BarProgressProps {
   intervalRate?: number;
   progress?: number;
   fillChar?: string;
 }
 
-const BarProgress: React.FC<BarProgressProps> = ({ intervalRate, progress, fillChar = '░' }) => {
+export const BarProgress: React.FC<BarProgressProps> = ({ intervalRate, progress, fillChar = '░' }) => {
   const [currentProgress, setCurrentProgress] = React.useState(progress ?? 0);
   const [containerWidth, setContainerWidth] = React.useState(0);
   const [charWidth, setCharWidth] = React.useState(0);

@@ -1,16 +1,19 @@
-import styles from '@components/page/DefaultLayout.module.scss';
-
 import * as React from 'react';
 
-interface DefaultLayoutProps {
-  previewPixelSRC: string;
+const styles = {
+  body: "max-w-[80ch]",
+  pixel: "h-[1px] w-[1px] absolute top-0 left-0"
+};
+
+export interface DefaultLayoutProps {
+  previewPixelSRC?: string;
   children?: React.ReactNode;
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({ previewPixelSRC, children }) => {
+export const DefaultLayout: React.FC<DefaultLayoutProps> = ({ previewPixelSRC, children }) => {
   return (
     <div className={styles.body}>
-      <img className={styles.pixel} src={previewPixelSRC} alt="" />
+      {previewPixelSRC && <img className={styles.pixel} src={previewPixelSRC} alt="" />}
       {children}
     </div>
   );

@@ -1,12 +1,14 @@
-import styles from '@components/Text.module.scss';
-
 import * as React from 'react';
 
-interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+const styles = {
+  text: "whitespace-pre-wrap break-words"
+};
+
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   children?: React.ReactNode;
 }
 
-const Text: React.FC<TextProps> = ({ children, ...rest }) => {
+export const Text: React.FC<TextProps> = ({ children, ...rest }) => {
   return (
     <p className={styles.text} {...rest}>
       {children}

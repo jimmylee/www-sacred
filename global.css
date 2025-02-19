@@ -48,110 +48,6 @@
   src: url('https://intdev-global.s3.us-west-2.amazonaws.com/public/internet-dev/e049dfb6-9c5d-4ac4-97c2-eb6e95c61d09.woff2') format('woff2');
 }
 
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-canvas,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-div,
-dl,
-dt,
-embed,
-em,
-figure,
-figcaption,
-fieldset,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-mark,
-menu,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-q,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-tt,
-u,
-ul,
-var,
-video {
-  border: 0;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-}
-
-a {
-  background: var(--theme-border-subdued);
-  color: var(--theme-text);
-
-  &:hover {
-    background: var(--theme-focused-foreground);
-    color: var(--theme-text);
-  }
-
-  &:focus {
-    background: var(--theme-focused-foreground);
-    color: var(--theme-text);
-    outline: 0;
-  }
-}
-
 ul {
   list-style-position: inside;
   list-style-type: '▪';
@@ -177,7 +73,7 @@ ol li {
   counter-increment: cupcake;
 }
 
-ul li:before {
+ul li::before {
   content: ' ';
   display: inline-block;
   width: 1ch;
@@ -185,8 +81,25 @@ ul li:before {
   visibility: hidden;
 }
 
-ol li:before {
+ol li::before {
   content: counters(cupcake, '.') '. ';
+}
+
+a {
+  background: var(--theme-border-subdued);
+  color: var(--theme-text);
+  text-decoration: underline;
+
+  &:hover {
+    background: var(--theme-focused-foreground);
+    color: var(--theme-text);
+  }
+
+  &:focus {
+    background: var(--theme-focused-foreground);
+    color: var(--theme-text);
+    outline: 0;
+  }
 }
 
 article,
@@ -195,11 +108,9 @@ details,
 figcaption,
 figure,
 footer,
-header,
 hgroup,
 menu,
-nav,
-section {
+nav {
   display: block;
 }
 
@@ -358,9 +269,6 @@ body.font-use-sfmono-square {
   --font-family-mono: 'SFMonoSquare-Regular', sans-serif;
 }
 
-#__next {
-}
-
 html,
 body {
   --color-black-100: rgba(0, 0, 0, 1);
@@ -426,7 +334,6 @@ body {
   --color-gray-90: rgba(38, 38, 38, 1);
   --color-gray-90-6: rgba(38, 38, 38, 0.6);
 
-  --color-green-100: rgba(7, 25, 8, 1);
   --color-green-100: rgba(7, 25, 8, 1);
   --color-green-90: rgba(2, 45, 13, 1);
   --color-green-80: rgba(4, 67, 23, 1);
@@ -514,27 +421,30 @@ body {
   color: var(--theme-text);
   font-family: var(--font-family-mono);
   line-height: calc(var(--theme-line-height-base) * 1rem);
-
   font-size: var(--font-size);
   font-optical-sizing: auto;
   font-weight: 400;
   font-variant-numeric: tabular-nums lining-nums;
-
-  &::-webkit-scrollbar {
-    background: transparent;
-    height: calc(var(--theme-line-height-base) * 1rem);
-    width: 1ch;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--theme-background);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--theme-border);
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--theme-border);
-  }
 }
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  background: transparent;
+  height: calc(var(--theme-line-height-base) * 1rem);
+  width: 1ch;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--theme-background);
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-border);
+} 

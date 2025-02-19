@@ -1,9 +1,15 @@
-import styles from '@components/Avatar.module.scss';
-
 import * as React from 'react';
-import * as Utilities from '@common/utilities';
+import clsx from 'clsx';
 
-interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'style' | 'className' | 'children'> {
+const styles = {
+  parent: "flex items-start justify-between",
+  placeholder: "bg-[var(--theme-border)] inline-block w-[4ch] h-[calc(var(--font-size)*var(--theme-line-height-base)*2)] align-bottom flex-shrink-0 relative hover:before:content-[''] hover:before:absolute hover:before:inset-0 hover:before:pointer-events-none hover:before:opacity-50 hover:before:bg-[var(--theme-focused-foreground)]",
+  root: "inline-block w-[4ch] h-[calc(var(--font-size)*var(--theme-line-height-base)*2)] align-bottom flex-shrink-0 relative hover:before:content-[''] hover:before:absolute hover:before:inset-0 hover:before:pointer-events-none hover:before:opacity-50 hover:before:bg-[var(--theme-focused-foreground)]",
+  link: "inline-block w-[4ch] h-[calc(var(--font-size)*var(--theme-line-height-base)*2)] align-bottom flex-shrink-0 relative hover:before:content-[''] hover:before:absolute hover:before:inset-0 hover:before:pointer-events-none hover:before:opacity-50 hover:before:bg-[var(--theme-focused-foreground)] focus:outline-0",
+  right: "min-w-[10%] w-full bg-[var(--theme-foreground)]"
+};
+
+export interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'style' | 'className' | 'children'> {
   src?: string;
   href?: string;
   target?: string;
@@ -11,19 +17,24 @@ interface AvatarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'style'
   children?: React.ReactNode;
 }
 
-const Avatar: React.FC<AvatarProps> = (props) => {
+export const Avatar: React.FC<AvatarProps> = (props) => {
   const { src, style: propStyle, href, target, children, ...rest } = props;
 
-  const backgroundStyle = src ? { backgroundImage: `url(${src})` } : {};
+  const backgroundStyle = src ? { 
+    backgroundImage: `url(${src})`,
+    backgroundSize: '100% 100%',
+    backgroundPosition: '0 0',
+    backgroundRepeat: 'no-repeat'
+  } : {};
 
   const combinedStyle = { ...propStyle, ...backgroundStyle };
 
   let avatarElement: React.ReactElement;
 
   if (href) {
-    avatarElement = <a className={Utilities.classNames(src ? styles.root : styles.placeholder)} style={combinedStyle} href={href} target={target} tabIndex={0} role="link" />;
+    avatarElement = <a className={clsx(src ? styles.link : styles.placeholder)} style={combinedStyle} href={href} target={target} tabIndex={0} role="link" />;
   } else {
-    avatarElement = <figure className={Utilities.classNames(src ? styles.root : styles.placeholder)} style={combinedStyle} />;
+    avatarElement = <figure className={clsx(src ? styles.root : styles.placeholder)} style={combinedStyle} />;
   }
 
   if (!children) {

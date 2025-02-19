@@ -1,8 +1,12 @@
-import styles from '@components/ActionListItem.module.scss';
-
 import * as React from 'react';
 
-interface ActionListItemProps {
+const styles = {
+  item: "flex items-center justify-between bg-transparent text-[var(--theme-text)] cursor-pointer outline-0 border-0 no-underline group !no-underline h-[calc(var(--theme-line-height-base)*1rem)]",
+  icon: "flex items-center justify-center bg-[var(--theme-button-foreground)] flex-shrink-0 w-[3ch] h-full select-none group-hover:bg-[var(--theme-focused-foreground)] group-focus:bg-[var(--theme-focused-foreground)]",
+  text: "inline-flex items-center justify-start bg-[var(--theme-button-background)] min-w-[10%] w-full px-[1ch] select-none h-full"
+};
+
+export interface ActionListItemProps {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   children?: React.ReactNode;
@@ -11,7 +15,7 @@ interface ActionListItemProps {
   onClick?: React.MouseEventHandler<HTMLDivElement | HTMLAnchorElement>;
 }
 
-const ActionListItem: React.FC<ActionListItemProps> = (props) => {
+export const ActionListItem: React.FC<ActionListItemProps> = (props) => {
   const { href, target, onClick, children, icon, style } = props;
 
   if (href) {

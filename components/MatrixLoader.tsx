@@ -1,10 +1,13 @@
 'use client';
 
-import styles from '@components/MatrixLoader.module.scss';
-
 import * as React from 'react';
 
-interface MatrixLoaderProps {
+const styles = {
+  container: "w-full h-auto relative",
+  root: "block w-full bg-transparent"
+};
+
+export interface MatrixLoaderProps {
   rows?: number;
   direction?: undefined | 'top-to-bottom' | 'left-to-right';
   mode?: undefined | 'greek' | 'katakana';
@@ -36,7 +39,7 @@ function onTextGeneration({ mode = 'greek' }) {
   return '0';
 }
 
-const MatrixLoader: React.FC<MatrixLoaderProps> = ({ rows = 25, direction = 'top-to-bottom', mode = 'greek' }) => {
+export const MatrixLoader: React.FC<MatrixLoaderProps> = ({ rows = 25, direction = 'top-to-bottom', mode = 'greek' }) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   React.useEffect(() => {

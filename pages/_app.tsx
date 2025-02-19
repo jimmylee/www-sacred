@@ -1,10 +1,10 @@
-import '@root/global.scss';
+import '../styles.css';
 
 import * as React from 'react';
 
 import Providers from '@components/Providers';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: any) {
   return (
     <Providers>
       <Component {...pageProps} />

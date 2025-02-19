@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/HoverComponentTrigger.module.scss';
-
 import * as React from 'react';
 import * as Position from '@common/position';
 
@@ -11,13 +9,17 @@ import Tooltip from '@components/Tooltip';
 
 import { createPortal } from 'react-dom';
 
-interface HoverComponentTriggerProps {
+const styles = {
+  root: "inline-block relative"
+};
+
+export interface HoverComponentTriggerProps {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>;
   text: string;
   component: 'popover' | 'tooltip';
 }
 
-function HoverComponentTrigger({ children, text, component }: HoverComponentTriggerProps) {
+export function HoverComponentTrigger({ children, text, component }: HoverComponentTriggerProps) {
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState<Position.Placement>('bottom');
   const [position, setPosition] = React.useState<{ top: number; left: number }>({ top: 0, left: 0 });

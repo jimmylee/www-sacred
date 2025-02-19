@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/page/DefaultActionBar.module.scss';
-
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
 
@@ -9,7 +7,10 @@ import { toggleDebugGrid } from '@components/DebugGrid';
 import { useHotkeys } from '@modules/hotkeys';
 
 import ActionBar from '@components/ActionBar';
-import ButtonGroup from '@components/ButtonGroup';
+
+const styles = {
+  root: "fixed top-0 left-[2ch] z-[1]"
+};
 
 function isElement(target: EventTarget | null): target is Element {
   return target instanceof Element;
@@ -114,7 +115,7 @@ interface DefaultActionBarProps {
   }[];
 }
 
-const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
+export const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
   const [isGrid, setGrid] = React.useState(false);
   useHotkeys('ctrl+g', () => toggleDebugGrid());
 

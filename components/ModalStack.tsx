@@ -1,20 +1,24 @@
 'use client';
 
-import styles from '@components/ModalStack.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 
 import { useModals } from '@components/page/ModalContext';
 
-interface ModalStackProps {}
+const styles = {
+  root: "items-center bottom-0 flex justify-center left-0 pointer-events-none fixed right-0 top-0 z-[var(--z-index-page-modals)]",
+  item: "pointer-events-auto absolute transition-[opacity,transform] duration-[0.2s,0.4s] ease-[ease,ease]"
+};
 
-const ModalStack: React.FC<ModalStackProps> = () => {
+export interface ModalStackProps {}
+
+export const ModalStack: React.FC<ModalStackProps> = () => {
   const { modalStack } = useModals();
 
   const totalModals = modalStack.length;
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root)}>
       {modalStack.map((modalState, index) => {
         const { key, component: ModalComponent, props } = modalState;
 
@@ -25,7 +29,7 @@ const ModalStack: React.FC<ModalStackProps> = () => {
         return (
           <div
             key={key}
-            className={styles.item}
+            className={clsx(styles.item)}
             style={{
               zIndex: 10 + index,
               transform: `translateY(${translateY}px)`,

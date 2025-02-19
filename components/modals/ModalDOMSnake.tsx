@@ -1,8 +1,7 @@
 'use client';
 
-import styles from '@components/modals/ModalCanvasSnake.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 import * as Utilities from '@common/utilities';
 
 import { useModals } from '@components/page/ModalContext';
@@ -11,15 +10,19 @@ import Button from '@components/Button';
 import Card from '@components/Card';
 import DOMSnake from '@components/DOMSnake';
 
-interface ModalDOMSnakeProps {
+const styles = {
+  root: "animate-fadeIn bg-[var(--theme-background-modal)] shadow-[0_0_0_1ch_var(--theme-border-subdued)] block font-normal mx-auto max-w-[64ch] px-[2ch] py-[calc(var(--font-size)*var(--theme-line-height-base))] select-none w-full"
+};
+
+export interface ModalDOMSnakeProps {
   buttonText?: string | any;
 }
 
-function ModalDOMSnake({ buttonText }: ModalDOMSnakeProps) {
+export function ModalDOMSnake({ buttonText }: ModalDOMSnakeProps) {
   const { close } = useModals();
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root)}>
       <Card title="DOM SNAKE">
         <DOMSnake height={14} width={34} />
         <br />

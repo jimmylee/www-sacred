@@ -1,21 +1,25 @@
 'use client';
 
-import styles from '@components/ButtonGroup.module.scss';
+import clsx from 'clsx';
 
 import * as React from 'react';
-import * as Utilities from '@common/utilities';
 
 import ActionButton from '@components/ActionButton';
 import DropdownMenuTrigger from '@components/DropdownMenuTrigger';
 
-const ButtonGroup = (props) => {
+const styles = {
+  root: clsx(""),
+  full: clsx("grid grid-cols-[repeat(auto-fit,minmax(60px,1fr))] whitespace-nowrap [&>*>*]:w-full")
+};
+
+export const ButtonGroup = (props: any) => {
   if (!props.items) {
     return null;
   }
 
   return (
-    <div className={Utilities.classNames(styles.root, props.isFull ? styles.full : null)}>
-      {props.items.map((each) => {
+    <div className={clsx(styles.root, props.isFull && styles.full)}>
+      {props.items.map((each: any) => {
         if (each.items) {
           return (
             <DropdownMenuTrigger key={each.body} items={each.items} hotkey={each.openHotkey}>

@@ -1,14 +1,16 @@
 'use client';
 
-import styles from '@components/Row.module.scss';
-
 import * as React from 'react';
 
-type RowProps = React.HTMLAttributes<HTMLElement> & {
+const styles = {
+  row: "block outline-0 border-0 transition-[background] duration-200 ease focus:bg-[var(--theme-focused-foreground)]"
+};
+
+export type RowProps = React.HTMLAttributes<HTMLElement> & {
   children?: React.ReactNode;
 };
 
-const Row = React.forwardRef<HTMLElement, RowProps>(({ children, ...rest }, ref) => {
+export const Row = React.forwardRef<HTMLElement, RowProps>(({ children, ...rest }, ref) => {
   return (
     <section className={styles.row} ref={ref} {...rest}>
       {children}

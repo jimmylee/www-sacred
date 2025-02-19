@@ -1,10 +1,19 @@
 'use client';
 
-import styles from '@components/DatePicker.module.scss';
-
 import * as React from 'react';
 
-interface DatePickerProps {
+const styles = {
+  root: "inline-block select-none",
+  controls: "items-center bg-[var(--theme-border)] flex justify-between",
+  button: "self-stretch bg-none border-none text-[var(--theme-text)] cursor-pointer inline-block leading-[calc(var(--theme-line-height-base)*1em)] m-0 outline-0 px-[1ch] focus:bg-[var(--theme-focused-foreground)] focus:outline-0",
+  date: "min-w-[10%] px-[1ch] text-left w-full",
+  header: "bg-[var(--theme-border)] grid grid-cols-7 text-center",
+  days: "bg-[var(--theme-border-subdued)] grid grid-cols-7 grid-rows-[repeat(6,min-content)] items-start min-h-[calc(var(--theme-line-height-base)*6em)]",
+  cell: "outline-none px-[1ch] text-center focus:bg-[var(--theme-focused-foreground)]",
+  dayCell: "outline-none px-[1ch] text-center"
+};
+
+export interface DatePickerProps {
   year?: number;
   month?: number;
 }
@@ -18,7 +27,7 @@ const MONTH_NAMES = [
 
 const MAX_CELLS = 42;
 
-const DatePicker: React.FC<DatePickerProps> = ({ year, month }) => {
+export const DatePicker: React.FC<DatePickerProps> = ({ year, month }) => {
   const today = new Date();
   const [currentYear, setYear] = React.useState(year || today.getFullYear());
   const [currentMonth, setMonth] = React.useState(month || today.getMonth() + 1);

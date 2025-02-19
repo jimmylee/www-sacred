@@ -1,11 +1,14 @@
 'use client';
 
-import styles from '@components/ListItem.module.scss';
-
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
+import clsx from 'clsx';
 
-const ListItem = ({ children }) => {
+const styles = {
+  root: "pl-[1ch] focus:outline-0 focus:bg-[var(--theme-focused-foreground)]"
+};
+
+export const ListItem = ({ children }: any) => {
   const itemRef = React.useRef<HTMLLIElement>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
@@ -34,7 +37,7 @@ const ListItem = ({ children }) => {
   };
 
   return (
-    <li className={styles.root} tabIndex={0} ref={itemRef} onKeyDown={handleKeyDown}>
+    <li className={clsx(styles.root)} tabIndex={0} ref={itemRef} onKeyDown={handleKeyDown}>
       {children}
     </li>
   );

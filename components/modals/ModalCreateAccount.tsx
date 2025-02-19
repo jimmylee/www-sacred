@@ -1,9 +1,7 @@
 'use client';
 
-import styles from '@components/modals/ModalAlert.module.scss';
-
+import clsx from 'clsx';
 import * as React from 'react';
-import * as Utilities from '@common/utilities';
 
 import { useModals } from '@components/page/ModalContext';
 
@@ -13,11 +11,15 @@ import Checkbox from '@components/Checkbox';
 import Input from '@components/Input';
 import RadioButtonGroup from '@components/RadioButtonGroup';
 
-function ModalCreateAccount() {
+const styles = {
+  root: "animate-fadeIn bg-[var(--theme-background-modal)] shadow-[0_0_0_1ch_var(--theme-border-subdued)] block font-normal mx-auto max-w-[64ch] px-[2ch] py-[calc(var(--font-size)*var(--theme-line-height-base))] select-none w-full"
+};
+
+export function ModalCreateAccount() {
   const { close } = useModals();
 
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root)}>
       <CardDouble title="NEW ACCOUNT">
         Create a new MakeBelieve™ account, where anything is possible at your command line in the browser.
         <br />

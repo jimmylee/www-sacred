@@ -1,10 +1,15 @@
 'use client';
 
-import styles from '@components/TreeView.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 
-interface TreeViewProps {
+const styles = {
+  root: "whitespace-nowrap [-webkit-text-size-adjust:100%]",
+  item: "cursor-pointer focus:outline-0 focus:border-0 focus:bg-[var(--theme-focused-foreground)]",
+  empty: "opacity-50"
+};
+
+export interface TreeViewProps {
   children?: React.ReactNode;
   defaultValue?: boolean;
   depth?: number;
@@ -16,7 +21,7 @@ interface TreeViewProps {
   title: string;
 }
 
-const TreeView: React.FC<TreeViewProps> = ({ defaultValue = false, title, children, depth = 0, isFile = false, isRoot = false, isLastChild = false, style, parentLines = [] }) => {
+export const TreeView: React.FC<TreeViewProps> = ({ defaultValue = false, title, children, depth = 0, isFile = false, isRoot = false, isLastChild = false, style, parentLines = [] }) => {
   const [show, setShow] = React.useState<boolean>(defaultValue);
 
   const onToggleShow = (): void => {
@@ -35,7 +40,13 @@ const TreeView: React.FC<TreeViewProps> = ({ defaultValue = false, title, childr
 
   return (
     <div className={styles.root} style={style}>
-      <div tabIndex={0} role="button" onClick={onToggleShow} className={styles.item} aria-expanded={show}>
+      <div 
+        tabIndex={0} 
+        role="button" 
+        onClick={onToggleShow} 
+        className={clsx(styles.item, isEmptyFolder && styles.empty)} 
+        aria-expanded={show}
+      >
         {prefix}
         {icon}
         {title}

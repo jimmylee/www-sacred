@@ -1,10 +1,17 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import styles from './DOMSnake.module.scss';
 import ActionButton from './ActionButton';
 
-interface SnakeGameProps {
+const styles = {
+  container: "flex flex-col items-center gap-[4px]",
+  grid: "grid focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]",
+  cell: "w-full h-full",
+  snake: "bg-[var(--theme-text)]",
+  food: "bg-[var(--theme-focused-foreground)]"
+};
+
+export interface SnakeGameProps {
   width?: number;
   height?: number;
   startSpeed?: number;
@@ -22,7 +29,7 @@ const DIRECTIONS: Record<string, Position> = {
   ArrowRight: { x: 1, y: 0 },
 };
 
-export default function SnakeGame(props: SnakeGameProps) {
+export function SnakeGame(props: SnakeGameProps) {
   const GRID_WIDTH: number = props.width || 40;
   const GRID_HEIGHT: number = props.height || 20;
   const START_SPEED: number = props.startSpeed || 150;
@@ -167,3 +174,5 @@ export default function SnakeGame(props: SnakeGameProps) {
     </div>
   );
 }
+
+export default SnakeGame;

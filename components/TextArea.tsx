@@ -1,16 +1,29 @@
 'use client';
 
-import styles from '@components/TextArea.module.scss';
-
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
+import { clsx } from 'clsx';
 
-type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+const styles = {
+  root: "relative",
+  placeholder: "opacity-70 italic",
+  displayed: "whitespace-pre-wrap break-words pointer-events-none break-anywhere",
+  hidden: "whitespace-pre-wrap break-words pointer-events-none break-anywhere absolute invisible w-full overflow-auto",
+  focused: "group",
+  blink: "!animate-[blink_1s_steps(1)_infinite]",
+  block: [
+    "inline-block min-w-[1ch] bg-[var(--theme-text)] h-[calc(var(--font-size)*var(--theme-line-height-base))] align-bottom",
+    "group-[.focused]/textarea:bg-[var(--theme-focused-foreground)]"
+  ].join(" "),
+  hiddenElement: "absolute top-0 left-0 w-full h-full text-transparent bg-transparent caret-transparent border-none resize-none outline-none overflow-hidden p-0 m-0 leading-[var(--theme-line-height-base)] text-[var(--font-size)] font-inherit"
+};
+
+export type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
   autoPlay?: string;
   autoPlaySpeedMS?: number;
   isBlink?: boolean;
 };
-function TextArea({ autoPlay, autoPlaySpeedMS = 40, isBlink, placeholder, onChange, ...rest }: TextAreaProps) {
+export function TextArea({ autoPlay, autoPlaySpeedMS = 40, isBlink, placeholder, onChange, ...rest }: TextAreaProps) {
   const textAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
   const measurementRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -160,13 +173,19 @@ function TextArea({ autoPlay, autoPlaySpeedMS = 40, isBlink, placeholder, onChan
 
   const isPlaceholderVisible = !text && placeholder;
 
-  const containerClasses = Utilities.classNames(styles.root, isFocused && styles.focused);
+  const containerClasses = clsx(styles.root, isFocused && 'focused group/textarea');
 
   return (
     <div className={containerClasses}>
-      <div className={Utilities.classNames(styles.displayed, isPlaceholderVisible && styles.placeholder)}>
+      <div className={clsx(
+        styles.displayed,
+        isPlaceholderVisible && [
+          styles.placeholder,
+          "group-[.focused]/textarea:bg-[var(--theme-focused-foreground)]"
+        ]
+      )}>
         {isPlaceholderVisible ? placeholder : text.substring(0, selectionStart)}
-        {!isPlaceholderVisible && <span className={Utilities.classNames(styles.block, isBlink && styles.blink)}></span>}
+        {!isPlaceholderVisible && <span className={clsx(styles.block, isBlink && styles.blink)}></span>}
         {!isPlaceholderVisible && text.substring(selectionStart)}
       </div>
 

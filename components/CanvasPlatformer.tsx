@@ -1,12 +1,16 @@
 'use client';
 
-import styles from '@components/CanvasPlatformer.module.scss';
-
 import * as React from 'react';
+import clsx from 'clsx';
 
 import ActionButton from '@components/ActionButton';
 
-interface PlatformerProps {
+const styles = {
+  container: clsx("w-full h-auto relative"),
+  root: clsx("block w-full bg-transparent focus:outline-0 focus:shadow-[inset_0_0_0_1px_var(--theme-focused-foreground)]")
+};
+
+export interface PlatformerProps {
   rows?: number;
 }
 
@@ -37,7 +41,7 @@ interface Block {
   y: number;
 }
 
-const CanvasPlatformer: React.FC<PlatformerProps> = ({ rows = 25 }) => {
+export const CanvasPlatformer: React.FC<PlatformerProps> = ({ rows = 25 }) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [focused, setFocused] = React.useState(false);
 

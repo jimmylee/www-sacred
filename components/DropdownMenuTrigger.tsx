@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/DropdownMenuTrigger.module.scss';
-
 import * as Position from '@common/position';
 import * as React from 'react';
 import * as Utilities from '@common/utilities';
@@ -12,13 +10,17 @@ import OutsideElementEvent from '@components/detectors/OutsideElementEvent';
 import { createPortal } from 'react-dom';
 import { useHotkeys } from '@modules/hotkeys';
 
-interface DropdownMenuTriggerProps {
+const styles = {
+  root: "inline-block relative"
+};
+
+export interface DropdownMenuTriggerProps {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>;
   items: any;
   hotkey?: string;
 }
 
-function DropdownMenuTrigger({ children, items, hotkey }: DropdownMenuTriggerProps) {
+export function DropdownMenuTrigger({ children, items, hotkey }: DropdownMenuTriggerProps) {
   const [open, setOpen] = React.useState(false);
   const [focusChildren, setFocusChildren] = React.useState(false);
   const [willClose, setWillClose] = React.useState(false);

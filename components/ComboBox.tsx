@@ -1,7 +1,5 @@
 'use client';
 
-import styles from '@components/ComboBox.module.scss';
-
 import * as React from 'react';
 
 import AlertBanner from '@components/AlertBanner';
@@ -9,12 +7,16 @@ import ButtonGroup from '@components/ButtonGroup';
 import CardDouble from '@components/CardDouble';
 import Input from '@components/Input';
 
-interface ComboBoxProps {
+const styles = {
+  root: "p-0"
+};
+
+export interface ComboBoxProps {
   data: string[][];
   label?: string;
 }
 
-function ComboBox({ data, label }: ComboBoxProps) {
+export function ComboBox({ data, label }: ComboBoxProps) {
   const [searchTerm, setSearchTerm] = React.useState('');
 
   const filtered = React.useMemo(() => {
