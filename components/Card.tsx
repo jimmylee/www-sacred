@@ -15,8 +15,8 @@ const styles = {
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   children?: React.ReactNode;
-  title?: "left" | "right" | "center";
-  mode?: string | any;
+  title?: string | any;
+  mode?: "left" | "right" | "center";
 }
 
 export const Card: React.FC<CardProps> = ({ className, children, mode = "center", title, style, ...rest }) => {
