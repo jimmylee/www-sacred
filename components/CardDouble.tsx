@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface CardDoubleProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   title?: string | any;
-  mode?: string | any;
+  mode?: "left" | "right" | "center";
   style?: any;
 }
 
@@ -19,11 +19,11 @@ const styles = {
   borderChildren: "block"
 };
 
-export const CardDouble: React.FC<CardDoubleProps> = ({ children, mode, title, style, ...rest }) => {
+export const CardDouble: React.FC<CardDoubleProps> = ({ children, mode = "center", title, style, ...rest }) => {
   let titleElement = (
     <header className={styles.action}>
       <div className={styles.left} aria-hidden="true"></div>
-      <h2 className={styles.title}>{title}</h2>
+      { title && <h2 className={styles.title}>{title}</h2> }
       <div className={styles.right} aria-hidden="true"></div>
     </header>
   );

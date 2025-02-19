@@ -13,12 +13,13 @@ const styles = {
 };
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string;
   children?: React.ReactNode;
-  title?: string | any;
+  title?: "left" | "right" | "center";
   mode?: string | any;
 }
 
-export const Card: React.FC<CardProps> = ({ children, mode, title, style, ...rest }) => {
+export const Card: React.FC<CardProps> = ({ className, children, mode = "center", title, style, ...rest }) => {
   let titleElement = (
     <header className={styles.action}>
       <div className={styles.left} aria-hidden="true"></div>
@@ -31,7 +32,7 @@ export const Card: React.FC<CardProps> = ({ children, mode, title, style, ...res
     titleElement = (
       <header className={styles.action}>
         <div className={styles.leftCorner} aria-hidden="true"></div>
-        <h2 className={styles.title}>{title}</h2>
+        {title ? <h2 className={styles.title}>{title}</h2> : null}
         <div className={styles.right} aria-hidden="true"></div>
       </header>
     );
@@ -41,14 +42,14 @@ export const Card: React.FC<CardProps> = ({ children, mode, title, style, ...res
     titleElement = (
       <header className={styles.action}>
         <div className={styles.left} aria-hidden="true"></div>
-        <h2 className={styles.title}>{title}</h2>
+        {title ? <h2 className={styles.title}>{title}</h2> : null}
         <div className={styles.rightCorner} aria-hidden="true"></div>
       </header>
     );
   }
 
   return (
-    <article className={styles.card} style={style}>
+    <article className={clsx(styles.card, className)} style={style}>
       {titleElement}
       <section className={styles.children}>{children}</section>
     </article>
