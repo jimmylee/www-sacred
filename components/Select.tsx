@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 const styles = {
   select: "flex items-start cursor-default justify-between outline-none relative z-[var(--z-index-page-select)]",
-  control: "self-stretch bg-[var(--theme-button-foreground)] cursor-pointer flex-shrink-0 px-[1ch]",
+  control: "bg-[var(--theme-button-foreground)] cursor-pointer flex-shrink-0 px-[1ch] flex items-center h-[calc(var(--theme-line-height-base)*1rem)]",
   focused: "bg-[var(--theme-text)] text-[var(--theme-background)]",
   display: "bg-[var(--theme-border)] border-0 text-[var(--theme-text)] cursor-pointer font-[var(--font-family-mono)] text-[var(--font-size)] leading-[calc(var(--theme-line-height-base)*1rem)] m-0 min-w-[10%] outline-0 p-0 pl-[3ch] text-left select-none w-full hover:bg-[var(--theme-focused-foreground)] focus:bg-[var(--theme-focused-foreground)] focus:border-0 focus:outline-0",
   menu: "bg-[var(--theme-border-subdued)] left-[3ch] right-0 list-none p-0 z-[var(--z-index-page-select)]",

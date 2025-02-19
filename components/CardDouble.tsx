@@ -1,11 +1,5 @@
 import * as React from 'react';
-
-export interface CardDoubleProps extends React.HTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode;
-  title?: string | any;
-  mode?: "left" | "right" | "center";
-  style?: any;
-}
+import clsx from 'clsx';
 
 const styles = {
   card: "relative block p-0",
@@ -19,7 +13,15 @@ const styles = {
   borderChildren: "block"
 };
 
-export const CardDouble: React.FC<CardDoubleProps> = ({ children, mode = "center", title, style, ...rest }) => {
+export interface CardDoubleProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+  title?: string | any;
+  mode?: "left" | "right" | "center";
+  className?: string;
+  style?: any;
+}
+
+export const CardDouble: React.FC<CardDoubleProps> = ({ className,children, mode = "center", title, style, ...rest }) => {
   let titleElement = (
     <header className={styles.action}>
       <div className={styles.left} aria-hidden="true"></div>
@@ -49,7 +51,7 @@ export const CardDouble: React.FC<CardDoubleProps> = ({ children, mode = "center
   }
 
   return (
-    <article className={styles.card} style={{ ["--card-double-border-width" as string]: "6px", ["--card-double-half-gutter" as string]: "calc(var(--font-size) * 0.5)", ["--card-double-top-gutter" as string]: "6px" }}>
+    <article className={clsx(styles.card, className)} style={{ ["--card-double-border-width" as string]: "6px", ["--card-double-half-gutter" as string]: "calc(var(--font-size) * 0.5)", ["--card-double-top-gutter" as string]: "6px" }}>
       {titleElement}
       <section className={styles.children}>
         <section className={styles.borderChildren} style={style}>
